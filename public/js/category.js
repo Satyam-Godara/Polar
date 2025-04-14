@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const API_URL = 'polar-9syu.vercel.app';
+    const API_URL = 'https://polar-backend-6jr5.onrender.com';
     const user = JSON.parse(localStorage.getItem('user')) || {};
     let incomeBarChart, assetPieChart, expenseBarChart, liabilityPieChart;
     let showingAssetTable = false;
