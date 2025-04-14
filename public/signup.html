@@ -532,7 +532,7 @@
     <script src="./js/signup.js"></script>
     <script>
         function handleCredentialResponse(response) {
-          fetch("https://polar-backend-6jr5.onrender.com/auth/", {
+          fetch("https://polar-backend-6jr5.onrender.com/api/auth/google", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ credential: response.credential })
