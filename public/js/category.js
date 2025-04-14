@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) throw new Error(`Failed to fetch transactions: HTTP ${response.status}`);
             const transactions = await response.json();
             window.savedTransactions = transactions;
+            console.log('User token:', user.token);
+        console.log('Fetched transactions:', transactions);
             renderCategoryCharts(transactions);
         } catch (error) {
             console.error('Error fetching transactions:', error);
@@ -48,18 +50,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function renderCategoryCharts(transactions) {
-        const incomeData = groupByCategory(transactions, 'Income');
-        renderIncomeBarChart(incomeData.labels, incomeData.values);
+    console.log('Rendering category charts with data:', transactions); // ✅
+    const incomeData = groupByCategory(transactions, 'Income');
+    renderIncomeBarChart(incomeData.labels, incomeData.values);
 
-        const assetData = groupByCategory(transactions, 'Asset');
-        renderStyledPieChart('assetPieChart', assetData.labels, assetData.values, 'Asset Distribution');
+    const assetData = groupByCategory(transactions, 'Asset');
+    renderStyledPieChart('assetPieChart', assetData.labels, assetData.values, 'Asset Distribution');
 
-        const expenseData = groupByCategory(transactions, 'Expense');
-        renderExpenseBarChart(expenseData.labels, expenseData.values);
+    const expenseData = groupByCategory(transactions, 'Expense');
+    renderExpenseBarChart(expenseData.labels, expenseData.values);
 
-        const liabilityData = groupByCategory(transactions, 'Liability');
-        renderStyledPieChart('liabilityPieChart', liabilityData.labels, liabilityData.values, 'Liability Distribution');
-    }
+    const liabilityData = groupByCategory(transactions, 'Liability');
+    renderStyledPieChart('liabilityPieChart', liabilityData.labels, liabilityData.values, 'Liability Distribution');
+}
 
     function renderIncomeBarChart(labels, data) {
         const ctx = document.getElementById('incomeBarChart')?.getContext('2d');
@@ -336,13 +339,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const categoryNav = document.getElementById('nav-category');
-    if (categoryNav) categoryNav.addEventListener('click', fetchAndRenderCategoryCharts);
+    if (categoryNav) {
+        categoryNav.addEventListener('click', () => {
+            // ✅ Optionally, show the category section if hidden
+            const categorySection = document.getElementById('category');
+            if (categorySection) {
+                categorySection.style.display = 'block';
+            }
+            fetchAndRenderCategoryCharts();
+        });
+    }
 
-    const categoryEl = document.getElementById('category');
-if (categoryEl && getComputedStyle(categoryEl).display === 'block') {
-    fetchAndRenderCategoryCharts();
-}
-
+    // ✅ Directly fetch and render on load if section is already visible
+    const categorySection = document.getElementById('category');
+    if (categorySection && getComputedStyle(categorySection).display === 'block') {
+        fetchAndRenderCategoryCharts();
+    }
 
     const dateSpan = document.getElementById('currentDateCategory');
     if (dateSpan) {
