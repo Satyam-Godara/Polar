@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const API_URL = 'http://localhost:3000/api';
+    const API_URL = 'polar-9syu.vercel.app';
     const user = JSON.parse(localStorage.getItem('user')) || {};
     let incomeBarChart, assetPieChart, expenseBarChart, liabilityPieChart;
     let showingAssetTable = false;
