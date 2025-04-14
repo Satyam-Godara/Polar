@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
-            const response = await fetch('http://localhost:3000/api/users/signup', {
+            const response = await fetch('https://polar-backend-6jr5.onrender.com/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
