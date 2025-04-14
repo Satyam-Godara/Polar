@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
     const API_URL = 'https://polar-backend-6jr5.onrender.com/api';
     const user = JSON.parse(localStorage.getItem('user')) || {};
     let incomeBarChart, assetPieChart, expenseBarChart, liabilityPieChart;
@@ -346,4 +346,4 @@ document.addEventListener('DOMContentLoaded', function () {
     if (dateSpan) {
         dateSpan.textContent = new Date().toLocaleDateString();
     }
-});
+// });
