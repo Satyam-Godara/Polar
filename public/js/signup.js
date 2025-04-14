@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
-            const response = await fetch('https://polar-backend-6jr5.onrender.com/users/signup', {
+            const response = await fetch('https://polar-backend-6jr5.onrender.com/api/users/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         try {
-            const response = await fetch('https://polar-backend-6jr5.onrender.com/users/login', {
+            const response = await fetch('https://polar-backend-6jr5.onrender.com/api/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
