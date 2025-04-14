@@ -1,6 +1,6 @@
   // import { fetchAndRenderDashboardCharts } from './dashboard.js';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'polar-9syu.vercel.app';
 const USD_TO_INR_RATE = 1; // No conversion needed, all amounts in INR
 
 
