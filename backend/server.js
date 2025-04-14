@@ -631,7 +631,11 @@ const PORT = process.env.PORT || 3000;
 const JWT_SECRET = 'your_jwt_secret_key'; // Replace with a secure, random key in production
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://polar-djjd.vercel.app'], // replace with actual domain
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
 
