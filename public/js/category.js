@@ -1,4 +1,4 @@
-// document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const API_URL = 'https://polar-backend-6jr5.onrender.com/api';
     const user = JSON.parse(localStorage.getItem('user')) || {};
     let incomeBarChart, assetPieChart, expenseBarChart, liabilityPieChart;
@@ -338,12 +338,14 @@
     const categoryNav = document.getElementById('nav-category');
     if (categoryNav) categoryNav.addEventListener('click', fetchAndRenderCategoryCharts);
 
-    if (document.getElementById('category')?.style.display === 'block') {
-        fetchAndRenderCategoryCharts();
-    }
+    const categoryEl = document.getElementById('category');
+if (categoryEl && getComputedStyle(categoryEl).display === 'block') {
+    fetchAndRenderCategoryCharts();
+}
+
 
     const dateSpan = document.getElementById('currentDateCategory');
     if (dateSpan) {
         dateSpan.textContent = new Date().toLocaleDateString();
     }
-// });
+});
